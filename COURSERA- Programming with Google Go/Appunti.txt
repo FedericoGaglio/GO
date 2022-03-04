@@ -1,0 +1,52 @@
+****************** NOMENCLATURA *******************
+
+[1] GOROUTINES -> rappresenta dei task concorrenti tra di loro
+[2] CHANNELS   -> utilizzati per comunicare tra tasks
+[3] SELECT     -> abilita la sincronizzazione tra task
+
+****************************************************
+
+
+****************** WORKSPACE *******************
+
+- organizzazione delle cartelle in maniera gerarchica
+
+
+- src: contiene i file che hanno il codice appliucativo
+- pck: contiene i package (librerie)
+- bin: contiene gli eseguibili
+[ di norma è questa la configurazione di base ma non è mai sewguita letteralmente ]
+
+
++ GOPATH  ==>>  variabile di ambiente che definisce il workspace di lavoro
+( su macos e linux viene impostato automaticamente il path mentre su winmdows
+ bisogna fare a mano )
+
+
+****************************************************
+
+
+****************** COMANDI *******************
+
+[go build] per compilare il programma. Puoimpassare o packges o files .go. Questo
+           permette di poter creare un programma eseguibile richiamabile dal main.
+
+[go doc]   printa la documentazione per un determinato package passato
+
+[go fmt]   per formattare un file .go
+
+[go get]   per fare il download dei packages ed installarli
+
+[go run]   compila i file .go e gli esegue
+
+[go test]  per eseguire dei file che terminano con "_test.go"
+
+
+****************************************************
+
+
+****************** PUNTATORI *******************
+
+&    =>   operatore che ritornan l'indirizzo della variabile o della funzione
+
+*    =>   ritorna il valore vero e proprio relativamente ad un indirizzo
