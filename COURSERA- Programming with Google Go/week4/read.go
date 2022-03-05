@@ -18,7 +18,7 @@ type Person struct {
 func InsertData() {
 
 
-	lines, err := os.Open("/Users/federicogaglio/Desktop/courserago/week4/names.txt")
+	lines, err := os.Open("/Users/federicogaglio/Desktop/GO/COURSERA- Programming with Google Go/week4/names.txt")
 
 	if(err!=nil) {
 		log.Fatal(err)
