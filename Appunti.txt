@@ -1,0 +1,90 @@
+****************** NOMENCLATURA *******************
+
+[1] GOROUTINES -> rappresenta dei task concorrenti tra di loro
+[2] CHANNELS   -> utilizzati per comunicare tra tasks
+[3] SELECT     -> abilita la sincronizzazione tra task
+
+****************************************************
+
+
+****************** WORKSPACE *******************
+
+- organizzazione delle cartelle in maniera gerarchica
+
+
+- src: contiene i file che hanno il codice appliucativo
+- pck: contiene i package (librerie)
+- bin: contiene gli eseguibili
+[ di norma è questa la configurazione di base ma non è mai sewguita letteralmente ]
+
+
++ GOPATH  ==>>  variabile di ambiente che definisce il workspace di lavoro
+( su macos e linux viene impostato automaticamente il path mentre su winmdows
+ bisogna fare a mano )
+
+
+****************************************************
+
+
+****************** COMANDI *******************
+
+[go build] per compilare il programma. Puoimpassare o packges o files .go. Questo
+           permette di poter creare un programma eseguibile richiamabile dal main.
+
+[go doc]   printa la documentazione per un determinato package passato
+
+[go fmt]   per formattare un file .go
+
+[go get]   per fare il download dei packages ed installarli
+
+[go run]   compila i file .go e gli esegue
+
+[go test]  per eseguire dei file che terminano con "_test.go"
+
+
+****************************************************
+
+
+****************** PUNTATORI *******************
+
+&    =>   operatore che ritornan l'indirizzo della variabile o della funzione
+
+*    =>   ritorna il valore vero e proprio relativamente ad un indirizzo
+
+****************************************************
+
+****************** FUNZIONI *******************
+
+            [-- VARIADIC FUNCTION --]
+
++ per indicare che una funzione puo ricevere un numero variabile di input, guarda ex:
+
+        func getMAx(vals ...int) {
+            ......
+            for v,_ := range vals
+            .....
+        }
+    quindi si utilizzano i ...
+
+
+
++            [-- DEFERRED FUNCTION --]
+
+Si usa per : la chiamata può essere posticipata fino al completamento della 
+funzione circostante
+
+ex: 
+
+    func main() {
+        defer fmt.Println("world")
+
+        fmt.Println("hello")
+    }
+ 
+che stampa: 
+            hello
+            world
+
+QUINDI: Gli argomenti della chiamata differita vengono valutati immediatamente,
+ ma la chiamata alla funzione non viene eseguita finché la funzione circostante
+  non restituisce.
