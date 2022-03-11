@@ -88,3 +88,19 @@ che stampa:
 QUINDI: Gli argomenti della chiamata differita vengono valutati immediatamente,
  ma la chiamata alla funzione non viene eseguita finché la funzione circostante
   non restituisce.
+
+  *********** POLIMORFISMO *********
+
+  In go non si ha l'ereditarietà
+
+
+  ***********************************
+
+
+  *********** INTERFACCE ************
+
+  una interfaccia in go è una contenitore di forme di metodi
+
+  non si ha ovviamente un'implementazione
+
+  simile al concetto di ereditarietà con overriding dei metodi

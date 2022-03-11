@@ -5,9 +5,11 @@ import (
 	"bufio"
 	"os"
 	"strings"
+	"log"
 	//"COURSERA-Functions-Methods-and-Interfaces-in-Go/week1"
 	//"COURSERA-Functions-Methods-and-Interfaces-in-Go/week2"
-	"COURSERA-Functions-Methods-and-Interfaces-in-Go/week3"
+	//"COURSERA-Functions-Methods-and-Interfaces-in-Go/week3"
+	"COURSERA-Functions-Methods-and-Interfaces-in-Go/week4"
 )
 
 func main() {
@@ -41,7 +43,7 @@ func main() {
 
 	
 	//WEEK3
-	var animals = []string{"cow","bird","snake"}
+	/*var animals = []string{"cow","bird","snake"}
 	var actions = []string{"eat","move","speak"}
 
 	enterRequest := true
@@ -140,7 +142,82 @@ func main() {
 
 
 
-	}
+	}*/
 
+
+
+	//WEEK4
+
+	inputReader := bufio.NewReader(os.Stdin)
+	sliceOfAnimals := []week4.Animal{}
+
+	fmt.Println("Welcome to Animal Park where you can create and query animals")
+	fmt.Println("To begin, you can do either of the following types of queries:")
+	fmt.Println("To create an animal for the database, you will need to use the following Syntax:")
+	fmt.Println("newanimal (name of animal) (type of animal)")
+	fmt.Println("Upon creation of an animal, you can then query the animal(s) by doing the following:")
+	fmt.Println("query (name of animal) (action of animal)")
+
+	for {
+
+		fmt.Print(">")
+		userQuery, err := inputReader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		//userQuery = strings.Trim(userQuery, "\n")
+		userQuery = userQuery[:len(userQuery)-2]
+		sliceOfQuery := strings.Split(userQuery, " ")
+		if len(sliceOfQuery) > 3 || len(sliceOfQuery) < 3 {
+			fmt.Println("Invalid query 1")
+		}
+
+		determinant := sliceOfQuery[0]
+		switch determinant {
+		case "newanimal":
+
+			if sliceOfQuery[2] == "cow" {
+				cow := new(week4.Cow)
+				cow.Name = sliceOfQuery[1]
+				sliceOfAnimals = append(sliceOfAnimals, cow)
+				fmt.Println("Created it!")
+			} else if sliceOfQuery[2] == "snake" {
+				snake := new(week4.Snake)
+				snake.Name = sliceOfQuery[1]
+				sliceOfAnimals = append(sliceOfAnimals, snake)
+				fmt.Println("Created it!")
+			} else if sliceOfQuery[2] == "bird" {
+				bird := new(week4.Bird)
+				bird.Name = sliceOfQuery[1]
+				sliceOfAnimals = append(sliceOfAnimals, bird)
+				fmt.Println("Created it!")
+			} else {
+				fmt.Println("Invalid Query 2")
+				fmt.Println(sliceOfAnimals)
+			}
+		case "query":
+
+			var animals = []string{"cow","snake","bird"}
+
+			for _, animal := range sliceOfAnimals {
+				for _,a := range animals{
+					if a == sliceOfQuery[1] {
+						if sliceOfQuery[2] == "move" {
+							animal.Move()
+						} else if sliceOfQuery[2] == "eat" {
+							animal.Eat()
+						} else if sliceOfQuery[2] == "speak" {
+							animal.Speak()
+						}
+					}
+				}
+			}
+
+		default:
+			fmt.Println("Invalid user query 3")
+
+		}
+	}
 }
 
